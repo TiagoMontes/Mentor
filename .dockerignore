@@ -1,0 +1,5 @@
+# Ignorar node_modules para evitar conflitos
+node_modules
+npm-debug.log
+yarn-error.log
+.env
