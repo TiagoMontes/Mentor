@@ -1,4 +1,5 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
+import Header from '@/components/Header'
 
 type AlternativeProps = {
   children: ReactNode
@@ -6,18 +7,18 @@ type AlternativeProps = {
 
 export default function AlternativeLayout({ children }: AlternativeProps) {
   return (
-    <div className="bg-black text-white h-screen">
-      <header>
-        <nav>
-          <h1>Alternative</h1>
-          <ul>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-          </ul>
-        </nav>
+    <div className="flex min-h-screen flex-col bg-black text-white">
+      <header className="bg-black p-4 text-white">
+        <Header />
       </header>
-      {children}
+
+      <main>{children}</main>
+
+      <footer className="mt-auto bg-gray-800 py-4">
+        <p className="text-center text-sm text-gray-400">
+          © 2024 Mentor. All rights reserved.
+        </p>
+      </footer>
     </div>
   )
 }
