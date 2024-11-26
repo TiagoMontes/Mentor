@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 type DefaultProps = {
   children: ReactNode
@@ -14,11 +15,7 @@ export default function DefaultLayout({ children }: DefaultProps) {
 
       <main>{children}</main>
 
-      <footer className="mt-auto bg-gray-800 py-4">
-        <p className="text-center text-sm text-gray-400">
-          © 2024 Mentor. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 }
