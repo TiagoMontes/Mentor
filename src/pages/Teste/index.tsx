@@ -4,26 +4,21 @@ import DefaultLayout from '@/layouts/Default'
 import AlternativeLayout from '@/layouts/Alternative'
 import useUser from '@/hooks/useUser'
 
-const Home: NextPageWithLayout = () => {
+const Pagina2: NextPageWithLayout = () => {
   const { user, isLoading, isError } = useUser()
+
+  if (isError) return <div>failed to load</div>
+  if (isLoading) return <div>loading...</div>
 
   return (
     <div>
-      <h1>
-        ola mundo
-        {isLoading
-          ? ', ...'
-          : isError
-            ? ', ops... Ocorreu um erro'
-            : ` ${user.name}`}
-      </h1>
-      <p>Hallo Verden</p>
+      <h1>pagina 2, olá {user.name}</h1>
     </div>
   )
 }
 
-Home.getLayout = function getLayout(page: ReactElement) {
+Pagina2.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
 }
 
-export default Home
+export default Pagina2
