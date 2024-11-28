@@ -5,13 +5,13 @@ import DefaultLayout from '@/layouts/Default'
 import useUser from '@/hooks/useUser'
 
 const Home: NextPageWithLayout = () => {
-  const { user, isLoading, isError } = useUser()
+  const { user, isPending, isError } = useUser()
 
   return (
     <div>
       <h1>
         ola mundo
-        {isLoading
+        {isPending
           ? ', ...'
           : isError
             ? ', ops... Ocorreu um erro'
