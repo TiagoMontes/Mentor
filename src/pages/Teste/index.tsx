@@ -5,10 +5,10 @@ import DefaultLayout from '@/layouts/Default'
 import useUser from '@/hooks/useUser'
 
 const Pagina2: NextPageWithLayout = () => {
-  const { user, isLoading, isError } = useUser()
+  const { user, isPending, isError } = useUser()
 
   if (isError) return <div>failed to load</div>
-  if (isLoading) return <div>loading...</div>
+  if (isPending) return <div>loading...</div>
 
   return (
     <div>

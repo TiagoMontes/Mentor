@@ -1,21 +1,25 @@
-import useSWR from 'swr'
+import { useQuery } from '@tanstack/react-query'
 
 export default function useUser() {
-  const { data, error, isLoading } = useSWR(
-    '/api/hello',
-    async (url: string, options?: RequestInit) => {
-      const res = await fetch(url, options)
-      return res.json()
-    },
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false
-    }
-  )
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ['user'],
+    queryFn: fetchUser,
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 60 * 30
+  })
 
   return {
     user: data,
-    isLoading,
-    isError: error
+    isPending,
+    isError,
+    error
   }
+}
+
+async function fetchUser() {
+  const response = await fetch('/api/hello')
+  if (!response.ok) {
+    throw new Error('Erro ao buscar os dados do usuário')
+  }
+  return response.json()
 }

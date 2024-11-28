@@ -18,6 +18,5 @@ export default async function handler(
   )
 
   // executado apenas depois de 3s
-  console.log('macacu')
   res.status(200).json({ name: 'John Doe' })
 }
