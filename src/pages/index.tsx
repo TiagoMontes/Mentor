@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 import { NextPageWithLayout } from '@/pages/_app'
 import DefaultLayout from '@/layouts/Default'
-import AlternativeLayout from '@/layouts/Alternative'
+// import AlternativeLayout from '@/layouts/Alternative'
 import useUser from '@/hooks/useUser'
 
 const Home: NextPageWithLayout = () => {
