@@ -5,22 +5,22 @@ export default function Menu() {
   const itemsMenu: ItemType[] = [
     {
       name: 'Home',
-      path: ''
+      path: '/'
     },
     {
-      name: 'Settings',
-      path: ''
+      name: 'Pagina 2',
+      path: '/Teste'
     },
     {
       name: 'About',
-      path: ''
+      path: '/'
     }
   ]
 
   return (
     <ul className="flex space-x-4">
       {itemsMenu.map((item, i) => (
-        <Item name={item.name} path={'ola'} key={i} />
+        <Item name={item.name} path={item.path} key={i} />
       ))}
     </ul>
   )
