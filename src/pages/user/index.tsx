@@ -19,8 +19,4 @@ const UserPage: NextPageWithLayout = () => {
   )
 }
 
-UserPage.getLayout = function getLayout(page: ReactElement) {
-  return <AlternativeLayout>{page}</AlternativeLayout>
-}
-
 export default UserPage
