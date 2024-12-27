@@ -1,7 +1,5 @@
-import { ReactElement } from 'react'
 import { NextPageWithLayout } from '@/pages/_app'
 import useUser from '@/hooks/useUser'
-import AlternativeLayout from '@/layouts/Alternative'
 
 const UserPage: NextPageWithLayout = () => {
   const { user, isLoading, isError } = useUser()
