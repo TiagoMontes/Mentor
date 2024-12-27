@@ -9,7 +9,7 @@ export default function Menu() {
     },
     {
       name: 'Pagina 2',
-      path: '/Teste'
+      path: '/user'
     },
     {
       name: 'About',
