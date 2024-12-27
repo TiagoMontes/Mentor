@@ -3,20 +3,25 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
   name: string
+  age: number
+  email: string
+  phone: string
 }
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // o código vai esperar essa promise, sem ela, independente do que use como await, ele não irá esperar, já que é async.
-  // O await funciona apenas com Promises
   await new Promise((resolve) =>
     setTimeout(() => {
       resolve('3 segundos se passaram')
     }, 3000)
   )
 
-  // executado apenas depois de 3s
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).json({
+    name: 'John Doe',
+    age: 25,
+    email: 'john@gmail.com',
+    phone: '0123456789'
+  })
 }

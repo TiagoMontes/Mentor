@@ -1,7 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
 
+type User = {
+  name: string
+  email: string
+  phone: string
+  age: number
+}
+
 export default function useUser() {
-  const { data, isPending, isError, error } = useQuery({
+  const { data, isPending, isError, error } = useQuery<User>({
     queryKey: ['user'],
     queryFn: fetchUser,
     refetchOnWindowFocus: false,
@@ -10,14 +17,14 @@ export default function useUser() {
 
   return {
     user: data,
-    isPending,
+    isLoading: isPending,
     isError,
     error
   }
 }
 
-async function fetchUser() {
-  const response = await fetch('/api/hello')
+async function fetchUser(): Promise<User> {
+  const response = await fetch('/api/User/getInfo')
   if (!response.ok) {
     throw new Error('Erro ao buscar os dados do usuário')
   }
