@@ -13,9 +13,13 @@ export default function DefaultLayout({ children }: DefaultProps) {
         <Header />
       </header>
 
-      <main className="flex flex-grow p-4">{children}</main>
+      <main className="mx-auto w-full max-w-7xl flex-grow px-4 py-4 lg:px-0">
+        {children}
+      </main>
 
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }

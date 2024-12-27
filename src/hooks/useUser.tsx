@@ -1,11 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-
-type User = {
-  name: string
-  email: string
-  phone: string
-  age: number
-}
+import { User } from '@/type'
 
 export default function useUser() {
   const { data, isPending, isError, error } = useQuery<User>({

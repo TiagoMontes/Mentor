@@ -11,9 +11,9 @@ const UserPage: NextPageWithLayout = () => {
   if (isLoading || !user) return <div>loading...</div>
 
   return (
-    <div className="w-full flex-col gap-4">
-      <div className="flex flex-col rounded-2xl border-2 p-4">
-        <h1>olá {user.name}</h1>
+    <div className="flex w-full gap-4">
+      <div className="flex w-full flex-col rounded-2xl border-2 p-4">
+        <h1>Nome: {user.name}</h1>
         <h1>Idade: {user.age}</h1>
         <h1>Email: {user.email}</h1>
         <h1>Telefone: {user.phone}</h1>
