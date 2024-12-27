@@ -3,7 +3,7 @@ import Menu from '@/components/Header/Menu'
 
 export default function Header() {
   return (
-    <nav className="flex items-center justify-between">
+    <nav className="mx-auto flex max-w-7xl items-center justify-between">
       <Logo />
 
       <Menu />

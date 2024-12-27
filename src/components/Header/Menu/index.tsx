@@ -8,12 +8,12 @@ export default function Menu() {
       path: '/'
     },
     {
-      name: 'Pagina 2',
+      name: 'User',
       path: '/user'
     },
     {
       name: 'About',
-      path: '/'
+      path: '/about'
     }
   ]
 
