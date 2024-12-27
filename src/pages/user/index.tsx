@@ -1,8 +1,7 @@
 import { ReactElement } from 'react'
 import { NextPageWithLayout } from '@/pages/_app'
-import DefaultLayout from '@/layouts/Default'
-// import AlternativeLayout from '@/layouts/Alternative'
 import useUser from '@/hooks/useUser'
+import AlternativeLayout from '@/layouts/Alternative'
 
 const UserPage: NextPageWithLayout = () => {
   const { user, isLoading, isError } = useUser()
@@ -21,7 +20,7 @@ const UserPage: NextPageWithLayout = () => {
 }
 
 UserPage.getLayout = function getLayout(page: ReactElement) {
-  return <DefaultLayout>{page}</DefaultLayout>
+  return <AlternativeLayout>{page}</AlternativeLayout>
 }
 
 export default UserPage

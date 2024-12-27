@@ -1,5 +1,3 @@
-import { ReactElement } from 'react'
-import DefaultLayout from '@/layouts/Default'
 import { NextPageWithLayout } from '@/pages/_app'
 
 const About: NextPageWithLayout = () => {
@@ -37,10 +35,6 @@ const About: NextPageWithLayout = () => {
       </p>
     </div>
   )
-}
-
-About.getLayout = function getLayout(page: ReactElement) {
-  return <DefaultLayout>{page}</DefaultLayout>
 }
 
 export default About
