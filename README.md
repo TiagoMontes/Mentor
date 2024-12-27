@@ -16,7 +16,6 @@ Substitua <em>&lt;nome_do_container&gt;</em> pelo nome correto exibido em <code>
 
 <h2>Rotas Disponíveis</h2>
 • <strong>API</strong>: <a href="http://localhost:3000/User/getInfo">http://localhost:3000/User/getInfo</a><br/>
-(Esta rota substitui a antiga <code>/api/hello</code>.)<br/>
 
 <h2>Documentação Adicional</h2>
 • <a href="https://nextjs.org/docs">Documentação Next.js</a><br/>
