@@ -15,7 +15,7 @@ export default function DefaultLayout({ children }: DefaultProps) {
       <main className="mx-auto w-full max-w-7xl flex-grow px-4 py-4 lg:px-0">
         {children}
       </main>
-      s
+
       <footer className="bg-[#1F2937] py-4 text-[#9CA3AF]">
         <Footer />
       </footer>
