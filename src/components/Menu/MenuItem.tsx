@@ -1,7 +1,11 @@
-import { ItemType } from '@/type'
 import Link from 'next/link'
 
-export default function Item({ name, path }: ItemType) {
+type MenuItemProps = {
+  path: string
+  name: string
+}
+
+export default function MenuItem({ path, name }: MenuItemProps) {
   return (
     <li className="cursor-pointer hover:text-gray-300">
       <Link href={path}>{name}</Link>
