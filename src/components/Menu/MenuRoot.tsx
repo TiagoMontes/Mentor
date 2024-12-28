@@ -5,5 +5,5 @@ type MenuRootProps = {
 }
 
 export default function MenuRoot({ children }: MenuRootProps) {
-  return <div className="flex space-x-4">{children}</div>
+  return <ul className="flex space-x-4">{children}</ul>
 }
