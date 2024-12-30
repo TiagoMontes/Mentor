@@ -1,48 +1,25 @@
-# .github/workflows/ci.yml
-
-name: CI
+name: Pnpm Test
 
 on:
   push:
     branches:
-      - '**'
+      - "**"
   pull_request:
     branches:
-      - '**'
+      - "**"
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-
-      - name: Setup pnpm
-        run: pnpm/action-setup@v2
-        with:
-          version: 9
+      - name: Install Pnpm
+        uses: pnpm/action-setup@v2
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Run tests
         run: pnpm test
-
-      - name: Upload test results (optional)
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: ./test-results.xml  # Ajuste conforme a configuração de saída dos seus testes
-
