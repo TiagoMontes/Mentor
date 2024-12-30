@@ -4,16 +4,6 @@ import MenuItem from '@/components/Menu/MenuItem'
 import { itemsMenu } from '@/utils'
 
 describe('Menu.Item component', () => {
-  let consoleErrorSpy: jest.SpyInstance
-
-  beforeEach(() => {
-    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
-  })
-
-  afterEach(() => {
-    consoleErrorSpy.mockRestore()
-  })
-
   it('should render a list item with a link', () => {
     itemsMenu.forEach((item) => {
       render(<MenuItem path={item.path} name={item.name} />)

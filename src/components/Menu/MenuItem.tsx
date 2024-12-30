@@ -7,7 +7,7 @@ type MenuItemProps = {
 
 export default function MenuItem({ path, name }: MenuItemProps) {
   if (!path || !name) {
-    throw new Error('Path or Name is not defined')
+    throw new Error('Path and/or Name not defined')
   }
 
   return (
