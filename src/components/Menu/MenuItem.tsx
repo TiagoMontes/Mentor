@@ -6,8 +6,12 @@ type MenuItemProps = {
 }
 
 export default function MenuItem({ path, name }: MenuItemProps) {
+  if (!path || !name) {
+    throw new Error('Path or Name is not defined')
+  }
+
   return (
-    <li className="cursor-pointer hover:text-gray-300">
+    <li className="cursor-pointer hover:text-[#D1D5DB]">
       <Link href={path}>{name}</Link>
     </li>
   )
