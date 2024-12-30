@@ -12,7 +12,9 @@ export default function MenuItem({ path, name }: MenuItemProps) {
 
   return (
     <li className="cursor-pointer hover:text-[#D1D5DB]">
-      <Link href={path}>{name}</Link>
+      <Link aria-description={`link-para-${name}`} href={path}>
+        {name}
+      </Link>
     </li>
   )
 }
