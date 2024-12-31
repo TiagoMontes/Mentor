@@ -23,13 +23,13 @@ const Home: NextPageWithLayout = () => {
 
         const data = await response.json()
         setUsers(data)
-        setIsLoading((prevState) => !prevState)
+        setIsLoading(false)
       }
 
       fetchData()
     } catch (error) {
       alert(error)
-      setIsLoading((prevState) => !prevState)
+      setIsLoading(false)
     }
   }, [])
 
