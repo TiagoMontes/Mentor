@@ -2,9 +2,9 @@ import { NextPageWithLayout } from '@/pages/_app'
 import useUser from '@/hooks/useUser'
 
 const UserPage: NextPageWithLayout = () => {
-  const { user, isLoading, isError } = useUser()
+  const { user, isLoading, isError, error } = useUser()
 
-  if (isError) return <div>failed to load</div>
+  if (isError && error) return <div>{error.message}</div>
   if (isLoading || !user) return <div>loading...</div>
 
   return (
