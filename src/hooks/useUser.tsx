@@ -6,6 +6,7 @@ export default function useUser() {
     queryKey: ['user'],
     queryFn: fetchUser,
     refetchOnWindowFocus: false,
+    retry: false,
     staleTime: 1000 * 60 * 30
   })
 
@@ -18,9 +19,19 @@ export default function useUser() {
 }
 
 async function fetchUser(): Promise<User> {
-  const response = await fetch('/api/User/getInfo')
-  if (!response.ok) {
-    throw new Error('Erro ao buscar os dados do usuário')
+  try {
+    const response = await fetch('/api/user/profile', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    if (!response.ok) {
+      throw new Error('Error fetching user')
+    }
+    return response.json()
+  } catch {
+    throw new Error('Error fetching user')
   }
-  return response.json()
 }
