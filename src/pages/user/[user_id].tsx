@@ -1,8 +1,13 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import useUser from '@/hooks/useUser'
+import { GetServerSidePropsContext } from 'next'
 
-const UserPage: NextPageWithLayout = () => {
-  const { user, isLoading, isError, error } = useUser()
+type UserPageProps = {
+  slug: string
+}
+
+const UserPage: NextPageWithLayout<UserPageProps> = ({ slug }) => {
+  const { data: user, isLoading, isError, error } = useUser(slug)
 
   if (isError && error) return <div>{error.message}</div>
   if (isLoading || !user) return <div>loading...</div>
@@ -15,6 +20,12 @@ const UserPage: NextPageWithLayout = () => {
       <h1>Telefone: {user.phone}</h1>
     </div>
   )
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { query } = context
+
+  return { props: { slug: query.user_id || null } }
 }
 
 export default UserPage
