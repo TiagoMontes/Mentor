@@ -1,34 +1,9 @@
-import { useQuery } from '@tanstack/react-query'
+import useFetchData from './useFetchData'
 import { User } from '@/type'
 
-export default function useUser() {
-  const { data, isPending, isError, error } = useQuery<User>({
-    queryKey: ['user'],
-    queryFn: fetchUser,
-    refetchOnWindowFocus: false,
-    retry: false,
-    staleTime: 1000 * 60 * 30
-  })
+export default function useUser(userId?: string) {
+  // search specified user id not implemented
+  const url = userId ? `/api/user/${userId}` : `/api/user/profile`
 
-  return {
-    user: data,
-    isLoading: isPending,
-    isError,
-    error
-  }
-}
-
-async function fetchUser(): Promise<User> {
-  const response = await fetch('/api/user/profile', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-
-  if (!response.ok) {
-    throw new Error('Error fetching user')
-  }
-
-  return response.json()
+  return useFetchData<User>(userId ? ['user', userId] : ['user'], url)
 }

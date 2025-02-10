@@ -55,7 +55,6 @@ describe('Header component', () => {
 
     const links = screen.queryAllByRole('link')
 
-    console.log(links)
     expect(links.length).toBe(3)
   })
 
@@ -77,7 +76,6 @@ describe('Header component', () => {
 
     const links = screen.queryAllByRole('link')
 
-    console.log(links)
     expect(links.length).toBe(4)
   })
 })

@@ -5,7 +5,7 @@ import { itemsMenu } from '@/utils'
 import useUser from '@/hooks/useUser'
 
 export default function Header() {
-  const { user } = useUser()
+  const { data: user } = useUser()
 
   return (
     <nav className="mx-auto flex max-w-7xl items-center justify-between">
