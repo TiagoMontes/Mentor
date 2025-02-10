@@ -19,19 +19,16 @@ export default function useUser() {
 }
 
 async function fetchUser(): Promise<User> {
-  try {
-    const response = await fetch('/api/user/profile', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    if (!response.ok) {
-      throw new Error('Error fetching user')
+  const response = await fetch('/api/user/profile', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
     }
-    return response.json()
-  } catch {
+  })
+
+  if (!response.ok) {
     throw new Error('Error fetching user')
   }
+
+  return response.json()
 }
