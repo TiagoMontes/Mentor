@@ -15,7 +15,7 @@ export default function Header() {
         {itemsMenu.map((item: ItemType) => (
           <Menu.Item key={item.name} path={item.path} name={item.name} />
         ))}
-        {user && <Menu.Item path={`/user`} name={user.name} />}
+        {user && <Menu.Item path={`/user/${user.name}`} name={user.name} />}
       </Menu.Root>
     </nav>
   )
