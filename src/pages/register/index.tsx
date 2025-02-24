@@ -1,4 +1,3 @@
-import Login from '@/components/Form/Login'
 import { useForm } from 'react-hook-form'
 import { RegisterType } from '@/type'
 import Register from '@/components/Form/Register'
