@@ -25,7 +25,7 @@ export default function Field<TFormValues extends FieldValues>({
     <input
       className={twMerge(
         className,
-        'w-full rounded-lg border-2 border-black p-4'
+        'w-full rounded-lg border-2 border-black p-2'
       )}
       {...register(inputName, rules)}
       type={type}
