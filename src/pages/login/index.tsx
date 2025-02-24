@@ -2,6 +2,7 @@ import { NextPageWithLayout } from '@/pages/_app'
 import { useForm } from 'react-hook-form'
 import Login from '@/components/Form/Login'
 import { LoginType } from '@/type'
+import Link from 'next/link'
 
 const LoginPage: NextPageWithLayout = () => {
   const { register, handleSubmit } = useForm<LoginType>()
@@ -22,6 +23,12 @@ const LoginPage: NextPageWithLayout = () => {
           <button className="rounded-full border-2 border-black p-2 hover:bg-black hover:text-white">
             Enviar
           </button>
+          <p className="text-center text-[12px]">
+            Ainda não possui uma conta?{' '}
+            <Link href="/register" className="underline underline-offset-2">
+              Registre-se
+            </Link>
+          </p>
         </form>
       </div>
     </div>

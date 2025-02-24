@@ -11,6 +11,7 @@ interface FieldProps<TFormValues extends FieldValues> {
   register: UseFormRegister<TFormValues>
   type?: string
   rules?: RegisterOptions<TFormValues, Path<TFormValues>>
+  placeholder?: string
   className?: string
 }
 
@@ -19,6 +20,7 @@ export default function Field<TFormValues extends FieldValues>({
   register,
   type = 'text',
   rules = {},
+  placeholder,
   className
 }: FieldProps<TFormValues>) {
   return (
@@ -28,6 +30,7 @@ export default function Field<TFormValues extends FieldValues>({
         'w-full rounded-lg border-2 border-black p-2'
       )}
       {...register(inputName, rules)}
+      placeholder={placeholder}
       type={type}
     />
   )
