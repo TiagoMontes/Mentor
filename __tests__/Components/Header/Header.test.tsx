@@ -55,7 +55,7 @@ describe('Header component', () => {
 
     const links = screen.queryAllByRole('link')
 
-    expect(links.length).toBe(3)
+    expect(links.length).toBe(4)
   })
 
   it('should check if the total number of links rendered is as expected and user is logged', () => {
