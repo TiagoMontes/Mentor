@@ -2,11 +2,8 @@ import Logo from '@/components/Icons/Logo'
 import { Menu } from '@/components/Menu'
 import { ItemType } from '@/type'
 import { itemsMenu } from '@/utils'
-import useUser from '@/hooks/useUser'
 
 export default function Header() {
-  const { data: user } = useUser()
-
   return (
     <nav className="mx-auto flex max-w-7xl items-center justify-between">
       <Menu.Icon icon={Logo} />
@@ -15,7 +12,7 @@ export default function Header() {
         {itemsMenu.map((item: ItemType) => (
           <Menu.Item key={item.name} path={item.path} name={item.name} />
         ))}
-        {user && <Menu.Item path={`/user/${user.name}`} name={user.name} />}
+        <Menu.Item path="/login" name="Login" />
       </Menu.Root>
     </nav>
   )

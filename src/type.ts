@@ -9,3 +9,15 @@ export type User = {
   email: string
   phone: string
 }
+
+export type LoginType = {
+  username: string
+  password: string
+}
+
+export type RegisterType = {
+  username: string
+  password: string
+  email: string
+  age: number
+}
