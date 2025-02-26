@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import Header from '@/components/Header'
 import React from 'react'
-import { itemsMenu } from '@/utils'
+import { itemsMenu } from '@/utils/utils'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 describe('Header component', () => {

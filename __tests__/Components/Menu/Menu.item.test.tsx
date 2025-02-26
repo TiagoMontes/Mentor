@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import MenuItem from '@/components/Menu/MenuItem'
-import { itemsMenu } from '@/utils'
+import { itemsMenu } from '@/utils/utils'
 
 describe('Menu.Item component', () => {
   it('should render a list item with a link', () => {
