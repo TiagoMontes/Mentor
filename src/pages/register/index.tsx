@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { RegisterType } from '@/type'
 import Register from '@/components/Form/Register'
 import Link from 'next/link'
-import createUser from '@/pages/services/user/create'
+import createUser from '@/services/user/create'
 
 export default function RegisterPage() {
   const { register, handleSubmit } = useForm<RegisterType>()
