@@ -2,12 +2,19 @@ import { useForm } from 'react-hook-form'
 import { RegisterType } from '@/type'
 import Register from '@/components/Form/Register'
 import Link from 'next/link'
+import createUser from '@/services/user/create'
 
 export default function RegisterPage() {
   const { register, handleSubmit } = useForm<RegisterType>()
 
-  function logValues(values: RegisterType) {
-    console.log(values)
+  async function submitValues(values: RegisterType) {
+    const response = await createUser(values)
+
+    if (response.status !== 200) {
+      return alert(response.message)
+    }
+
+    return alert(response.message)
   }
 
   return (
@@ -15,7 +22,7 @@ export default function RegisterPage() {
       <div className="flex max-w-72 flex-col items-center gap-4 rounded-lg border-2 p-4">
         <h1>Registre-se</h1>
         <form
-          onSubmit={handleSubmit(logValues)}
+          onSubmit={handleSubmit(submitValues)}
           className="flex flex-col gap-2"
         >
           <Register register={register} />
