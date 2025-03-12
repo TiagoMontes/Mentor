@@ -24,7 +24,7 @@ export default async function handler(
         name: String(user_id),
         age: 35,
         email: 'dynamical@gmail.com',
-        phone: '9876543210'
+        phone: '9876543210',
       })
     } catch {
       res.status(500).json({ message: 'Error fetching user' })

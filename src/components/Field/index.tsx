@@ -2,7 +2,7 @@ import {
   UseFormRegister,
   RegisterOptions,
   FieldValues,
-  Path
+  Path,
 } from 'react-hook-form'
 import { twMerge } from 'tailwind-merge'
 
@@ -21,7 +21,7 @@ export default function Field<TFormValues extends FieldValues>({
   type = 'text',
   rules = {},
   placeholder,
-  className
+  className,
 }: FieldProps<TFormValues>) {
   return (
     <input

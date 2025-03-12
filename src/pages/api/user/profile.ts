@@ -22,7 +22,7 @@ export default async function handler(
         name: 'John Doe',
         age: 25,
         email: 'john@gmail.com',
-        phone: '0123456789'
+        phone: '0123456789',
       })
     } catch {
       res.status(500).json({ message: 'Error fetching user' })

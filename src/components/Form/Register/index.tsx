@@ -3,7 +3,7 @@ import Field from '@/components/Field'
 import { RegisterType } from '@/type'
 
 export default function Register({
-  register
+  register,
 }: {
   register: UseFormRegister<RegisterType>
 }) {
