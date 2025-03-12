@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react'
 
-export default function index() {
+type Messages = {
+  role: string
+  content: string
+}
+
+export default function Index() {
   const [message, setMessage] = useState('')
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState<Messages[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [displayedResponse, setDisplayedResponse] = useState('')
   const [threadId, setThreadId] = useState(null)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!message.trim()) return
 
