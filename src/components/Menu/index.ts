@@ -5,5 +5,5 @@ import MenuIcon from '@/components/Menu/MenuIcon'
 export const Menu = {
   Root: MenuRoot,
   Item: MenuItem,
-  Icon: MenuIcon
+  Icon: MenuIcon,
 }

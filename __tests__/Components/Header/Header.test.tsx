@@ -38,7 +38,7 @@ describe('Header component', () => {
   it('must contain exactly the expected menu items', () => {
     const expectedItems = [
       { name: 'Home', path: '/' },
-      { name: 'About', path: '/about' }
+      { name: 'About', path: '/about' },
     ]
 
     expect(itemsMenu).toEqual(expectedItems)
@@ -65,7 +65,7 @@ describe('Header component', () => {
       name: 'John Doe',
       age: 25,
       email: 'john@gmail.com',
-      phone: '0123456789'
+      phone: '0123456789',
     })
 
     render(

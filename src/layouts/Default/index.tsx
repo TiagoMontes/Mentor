@@ -8,7 +8,7 @@ type DefaultProps = {
 
 export default function DefaultLayout({ children }: DefaultProps) {
   return (
-    <div className="flex min-h-screen flex-col justify-between bg-white text-black">
+    <div className="flex min-h-screen flex-col justify-between bg-white text-black bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       <header className="bg-black p-4 text-white">
         <Header />
       </header>

@@ -22,26 +22,26 @@ export default async function handler(
           name: 'John Doe',
           age: 25,
           email: 'john@gmail.com',
-          phone: '0123456789'
+          phone: '0123456789',
         },
         {
           name: 'Maria Doe',
           age: 30,
           email: 'maria@gmail.com',
-          phone: '0123412354'
+          phone: '0123412354',
         },
         {
           name: 'Neymar Doe',
           age: 12,
           email: 'neymar@gmail.com',
-          phone: '1294949024'
+          phone: '1294949024',
         },
         {
           name: 'Caze Doe',
           age: 28,
           email: 'caze@gmail.com',
-          phone: '5666556789'
-        }
+          phone: '5666556789',
+        },
       ])
     } catch {
       res.status(500).json({ message: 'Error fetching users.' })
