@@ -63,44 +63,51 @@ export default function Index() {
   }, [messages])
 
   return (
-    <div className="max-w-2xl mx-auto p-4 font-sans flex flex-col h-screen">
-      <div className="max-h-[500px] flex-1 overflow-y-auto mb-5 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 transition-colors">
-        {messages.length === 0 ? (
-          <div className="bg-gray-100 rounded-lg p-5 shadow-sm">
-            <p className="text-gray-800 text-base leading-relaxed">
-              Digite uma mensagem para começar...
-            </p>
-          </div>
-        ) : (
-          messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`mb-4 p-4 rounded-lg ${
-                msg.role === 'user'
-                  ? 'bg-blue-50 text-blue-900 ml-auto max-w-[80%]'
-                  : 'bg-gray-100 text-gray-800 max-w-[80%]'
-              }`}
-            >
-              <p className="text-base leading-relaxed">
-                {msg.role === 'assistant' && index === messages.length - 1
-                  ? displayedResponse
-                  : msg.content}
+    <div className="max-w-2xl mx-auto p-4 font-sans flex flex-col min-h-screen text-white">
+      <div className="flex-1 overflow-y-auto mb-6 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-500 transition-colors">
+        <div className="min-h-[200px] sm:min-h-[300px] lg:min-h-[500px]">
+          {messages.length === 0 ? (
+            <div className="bg-gray-800 rounded-lg p-5 shadow-sm text-center">
+              <p className="text-gray-300 text-base leading-relaxed">
+                Digite uma mensagem para começar...
               </p>
             </div>
-          ))
-        )}
+          ) : (
+            messages.map((msg, index) => (
+              <div
+                key={index}
+                className={`mb-4 p-4 rounded-lg ${
+                  msg.role === 'user'
+                    ? 'bg-blue-900 text-white ml-auto max-w-[80%]'
+                    : 'bg-gray-700 text-gray-200 max-w-[80%]'
+                }`}
+              >
+                <p className="text-base leading-relaxed">
+                  {msg.role === 'assistant' && index === messages.length - 1
+                    ? displayedResponse
+                    : msg.content}
+                </p>
+              </div>
+            ))
+          )}
+        </div>
       </div>
-      <form onSubmit={handleSubmit} className="flex gap-3">
-        <textarea
+
+      <form
+        onSubmit={handleSubmit}
+        className="flex gap-3 flex-col sm:flex-row sticky bottom-4 bg-gray-700 p-2 rounded-lg shadow-md"
+      >
+        <input
           value={message}
+          type="text"
           onChange={(e) => setMessage(e.target.value)}
-          className="flex-1 min-h-[80px] p-3 text-sm border border-gray-300 rounded-md resize-y outline-none focus:border-blue-500 transition-colors disabled:bg-gray-200"
+          className="flex-grow text-white p-3 text-sm bg-gray-800 outline-none border-none rounded-md focus:ring-2 focus:ring-blue-500 disabled:text-gray-600"
           placeholder="Digite sua mensagem aqui"
           disabled={isLoading}
         />
         <button
           type="submit"
-          className="px-5 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors"
           disabled={isLoading}
         >
           {isLoading ? 'Enviando...' : 'Enviar'}
