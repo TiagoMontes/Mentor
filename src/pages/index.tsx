@@ -113,9 +113,7 @@ export default function Index() {
           aria-label={isLoading ? 'Enviando mensagem' : 'Enviar mensagem'}
         >
           {isLoading ? (
-            <Sync className={`h-6 w-6 ${
-              isLoading && 'animate-spin-anti'
-            }`} />
+            <Sync className={`h-6 w-6 ${isLoading && 'animate-spin-anti'}`} />
           ) : (
             <ArrowUpward className="h-6 w-6" />
           )}
