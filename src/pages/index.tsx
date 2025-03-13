@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { ArrowUpward, Sync } from '@/components/Icons'
 
 type Messages = {
   role: string
@@ -107,10 +108,17 @@ export default function Index() {
         />
         <button
           type="submit"
-          className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors"
+          className={`p-3 text-sm bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg focus:ring-2 focus:ring-blue-400 focus:outline-none ${
+            isLoading && 'animate-spin-anti'
+          }`}
           disabled={isLoading}
+          aria-label={isLoading ? 'Enviando mensagem' : 'Enviar mensagem'}
         >
-          {isLoading ? 'Enviando...' : 'Enviar'}
+          {isLoading ? (
+            <Sync className="h-6 w-6" />
+          ) : (
+            <ArrowUpward className="h-6 w-6" />
+          )}
         </button>
       </form>
     </div>
