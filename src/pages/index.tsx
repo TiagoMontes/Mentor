@@ -96,7 +96,7 @@ export default function Index() {
 
       <form
         onSubmit={handleSubmit}
-        className="flex gap-3 flex-col sm:flex-row sticky bottom-4 bg-gray-700 p-2 rounded-lg shadow-md"
+        className="flex gap-3 sm:flex-row sticky bottom-4 bg-gray-700 p-2 rounded-lg shadow-md"
       >
         <input
           value={message}
@@ -108,14 +108,14 @@ export default function Index() {
         />
         <button
           type="submit"
-          className={`p-3 text-sm bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg focus:ring-2 focus:ring-blue-400 focus:outline-none ${
-            isLoading && 'animate-spin-anti'
-          }`}
+          className="p-3 text-sm bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
           disabled={isLoading}
           aria-label={isLoading ? 'Enviando mensagem' : 'Enviar mensagem'}
         >
           {isLoading ? (
-            <Sync className="h-6 w-6" />
+            <Sync className={`h-6 w-6 ${
+              isLoading && 'animate-spin-anti'
+            }`} />
           ) : (
             <ArrowUpward className="h-6 w-6" />
           )}
