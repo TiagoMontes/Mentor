@@ -1,20 +1,18 @@
-import type { Config } from 'tailwindcss'
-
-export default {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/layouts/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      colors: {
-        christmas: '#7F1D1D',
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+      animation: {
+        'spin-anti': 'spinAnti 1s linear infinite', // Nova animação anti-horária
+      },
+      keyframes: {
+        spinAnti: {
+          '0%': { transform: 'rotate(360deg)' }, // Começa em 360
+          '100%': { transform: 'rotate(0deg)' }, // Termina em 0 (anti-horário)
+        },
       },
     },
   },
   plugins: [],
-} satisfies Config
+}

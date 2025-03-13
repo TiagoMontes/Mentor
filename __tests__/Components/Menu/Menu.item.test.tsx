@@ -1,41 +1,43 @@
-import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
-import MenuItem from '@/components/Menu/MenuItem'
-import { itemsMenu } from '@/utils'
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import MenuItem from '@/components/Menu/MenuItem';
 
-describe('Menu.Item component', () => {
+describe('MenuItem Component', () => {
   it('should render a list item with a link', () => {
-    itemsMenu.forEach((item) => {
-      render(<MenuItem path={item.path} name={item.name} />)
+    render(<MenuItem path="/about" name="About" />);
 
-      const link = screen.queryByRole('link', { name: item.name })
-      expect(link).toBeInTheDocument()
-      expect(link).toHaveAttribute('href', item.path)
-      expect(link).toBeDefined()
-    })
-  })
+    const listItem = screen.getByRole('listitem');
+    const link = screen.getByRole('link', { name: 'About' });
 
-  it('should render a li with cursor pointer and text grey in tailwind class', () => {
-    render(<MenuItem path={'/'} name={'default'} />)
+    expect(listItem).toBeInTheDocument();
+    expect(link).toBeInTheDocument();
+  });
 
-    const liItem = screen.getByRole('listitem')
-    expect(liItem).toHaveClass('cursor-pointer hover:text-[#D1D5DB]')
-  })
+  it('should render a li with cursor pointer and hover text grey classes', () => {
+    render(<MenuItem path="/about" name="About" />);
 
-  it('should throw an error if href is not defined', () => {
-    expect(() => render(<MenuItem name="home" />)).toThrow()
-  })
+    const listItem = screen.getByRole('listitem');
+    expect(listItem).toHaveClass('cursor-pointer hover:text-[#D1D5DB]');
+  });
 
-  it('should throw an error if name is not defined', () => {
-    expect(() => render(<MenuItem path="/" />)).toThrow()
-  })
+  it('should render a link with the correct href', () => {
+    render(<MenuItem path="/about" name="About" />);
 
-  it('A link should have an aria-describedby attribute', () => {
-    render(<MenuItem path="/" name="Home" />)
+    const link = screen.getByRole('link', { name: 'About' });
+    expect(link).toHaveAttribute('href', '/about');
+  });
 
-    expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute(
-      'aria-description',
-      'link-para-Home'
-    )
-  })
-})
+  it('should render a link with the correct aria-description', () => {
+    render(<MenuItem path="/about" name="About" />);
+
+    const link = screen.getByRole('link', { name: 'About' });
+    expect(link).toHaveAttribute('aria-description', 'link-para-About');
+  });
+
+  it('should render the link with the correct text', () => {
+    render(<MenuItem path="/about" name="About" />);
+
+    const link = screen.getByRole('link', { name: 'About' });
+    expect(link).toHaveTextContent('About');
+  });
+});

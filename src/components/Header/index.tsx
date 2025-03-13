@@ -1,7 +1,7 @@
 import Logo from '@/components/Icons/Logo'
 import { Menu } from '@/components/Menu'
 import { ItemType } from '@/type'
-import { itemsMenu } from '@/utils'
+import { itemsMenu } from '@/lib/utils'
 
 export default function Header() {
   return (
