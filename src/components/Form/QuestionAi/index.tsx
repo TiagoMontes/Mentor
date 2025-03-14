@@ -1,6 +1,12 @@
 import Field from '@/components/Field'
+import { UseFormRegister } from 'react-hook-form'
+import { FormData } from '@/type'
 
-export default function QuestionAi({ register }) {
+type QuestionAiProps = {
+  register: UseFormRegister<FormData>
+}
+
+export default function QuestionAi({ register }: QuestionAiProps) {
   return (
     <>
       <Field

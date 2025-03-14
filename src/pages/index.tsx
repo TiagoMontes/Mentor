@@ -2,14 +2,11 @@ import { useState } from 'react'
 import { ArrowUpward, Sync } from '@/components/Icons'
 import QuestionAi from '@/components/Form/QuestionAi'
 import { useForm } from 'react-hook-form'
+import { FormData } from '@/type'
 
 type Messages = {
   role: string
   content: string
-}
-
-type FormData = {
-  questionAsk: string
 }
 
 export default function Index() {

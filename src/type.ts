@@ -21,3 +21,7 @@ export type RegisterType = {
   email: string
   age: number
 }
+
+export type FormData = {
+  questionAsk: string
+}
