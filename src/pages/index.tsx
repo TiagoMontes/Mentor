@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ArrowUpward, Sync } from '@/components/Icons'
-import QuestionAi from '@/components/Form/QuestionAi'
+import QuestionInput from '@/components/Form/QuestionInput'
 import { useForm } from 'react-hook-form'
 import { FormData } from '@/type'
 
@@ -16,7 +16,7 @@ export default function Index() {
   const [threadId, setThreadId] = useState(null)
   const { register, handleSubmit, reset } = useForm<FormData>()
 
-  async function askSomething(values: FormData) {
+  async function sendQuestionToAI(values: FormData) {
     const question = values.questionAsk.trim()
     if (!question) return
 
@@ -85,10 +85,10 @@ export default function Index() {
       </div>
 
       <form
-        onSubmit={handleSubmit(askSomething)}
+        onSubmit={handleSubmit(sendQuestionToAI)}
         className="flex gap-3 sm:flex-row sticky bottom-4 bg-gray-700 p-2 rounded-lg shadow-md"
       >
-        <QuestionAi register={register} />
+        <QuestionInput register={register} />
         <button
           type="submit"
           className="p-3 text-sm bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
