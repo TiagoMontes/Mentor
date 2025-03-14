@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionInput matches snapshot 1`] = `
+<div>
+  <input
+    class="bg-black outline-none w-full rounded-lg border-2 border-black p-2"
+    name="questionAsk"
+    placeholder="Faça uma pergunta..."
+    type="text"
+  />
+</div>
+`;
