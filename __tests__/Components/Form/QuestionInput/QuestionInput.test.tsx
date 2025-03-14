@@ -37,9 +37,9 @@ describe('QuestionInput', () => {
 
   it('should check if the total number of inputs rendered is as expected', () => {
     render(<QuestionInput register={mockRegister} />)
-    const allInputs = screen.queryAllByRole('input')
+    const allInputs = screen.queryAllByRole('textbox')
 
-    expect(allInputs).toBe(1)
+    expect(allInputs.length).toBe(1)
   })
 
   it('matches snapshot', () => {
