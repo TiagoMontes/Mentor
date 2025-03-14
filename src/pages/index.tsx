@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ArrowUpward, Sync } from '@/components/Icons'
-import QuestionAi from "@/components/Form/QuestionAi"
-import {useForm} from "react-hook-form"
+import QuestionAi from '@/components/Form/QuestionAi'
+import { useForm } from 'react-hook-form'
 
 type Messages = {
   role: string
