@@ -38,7 +38,7 @@ describe('Header component', () => {
   it('must contain exactly the expected menu items', () => {
     const expectedItems = [
       { name: 'Home', path: '/' },
-      { name: 'About', path: '/about' },
+      { name: 'News', path: '/news' },
     ]
 
     expect(itemsMenu).toEqual(expectedItems)
