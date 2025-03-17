@@ -17,7 +17,11 @@ export async function searchGoogle(query: string): Promise<SearchResult[]> {
     if (data.items && data.items.length > 0) {
       return data.items
         .slice(0, 3)
-        .map((item: { title: string; link: string; snippet: string }) => ({
+        .map((item: {
+          title: string
+          link: string
+          snippet: string
+        }) => ({
           title: item.title,
           link: item.link,
           snippet: item.snippet,

@@ -65,13 +65,12 @@ const News: NextPageWithLayout = () => {
               <FieldInformation.Root key={item.id}>
                 <FieldInformation.Header>
                   <FieldInformation.Title>{item.title}</FieldInformation.Title>
-
                   <FieldInformation.Date>{item.date}</FieldInformation.Date>
                 </FieldInformation.Header>
-
                 <FieldInformation.Description>
                   {item.description}
                 </FieldInformation.Description>
+
               </FieldInformation.Root>
             ))}
           </div>
