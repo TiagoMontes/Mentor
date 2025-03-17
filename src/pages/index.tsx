@@ -26,7 +26,7 @@ export default function Index() {
     reset()
 
     try {
-      const res = await fetch('/api/gpt', {
+      const res = await fetch('/api/OpenAI/gpt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

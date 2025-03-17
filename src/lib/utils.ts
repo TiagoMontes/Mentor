@@ -8,5 +8,5 @@ export function cn(...inputs: ClassValue[]) {
 
 export const itemsMenu: ItemType[] = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
+  { name: 'News', path: '/news' },
 ]
