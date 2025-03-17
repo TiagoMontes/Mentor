@@ -4,52 +4,15 @@ import OpenAI from 'openai'
 type ErrorResponse = {
   message: string
 }
-// type SearchResult = { title: string; link: string; snippet: string }
+
 type ResponseData = {
   message: string
   threadId: string
 }
-
-// const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
-// const GOOGLE_CX = process.env.GOOGLE_CX
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY
 const ASSISTANT_ID = process.env.ASSISTANT_ID
 
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY })
-
-// async function searchGoogle(query: string): Promise<SearchResult[]> {
-//   const url = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${GOOGLE_API_KEY}&cx=${GOOGLE_CX}`
-//
-//   try {
-//     const response = await fetch(url)
-//     const data = await response.json()
-//
-//     if (data.items && data.items.length > 0) {
-//       return data.items.slice(0, 3).map((item: any) => ({
-//         title: item.title,
-//         link: item.link,
-//         snippet: item.snippet,
-//       }))
-//     }
-//
-//     return [
-//       {
-//         title: 'Nenhum resultado encontrado',
-//         link: '',
-//         snippet: 'Nenhum resultado relevante encontrado na pesquisa.',
-//       },
-//     ]
-//   } catch (error) {
-//     console.error('❌ Erro ao buscar no Google:', error)
-//     return [
-//       {
-//         title: 'Erro na busca',
-//         link: '',
-//         snippet: 'Ocorreu um erro ao buscar informações atualizadas.',
-//       },
-//     ]
-//   }
-// }
 
 export default async function handler(
   req: NextApiRequest,

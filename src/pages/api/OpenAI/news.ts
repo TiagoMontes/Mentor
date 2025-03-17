@@ -1,12 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import OpenAI from 'openai'
-import { searchGoogle } from '@/pages/api/google'
 
 type ErrorResponse = { message: string }
 type ResponseData = { message: string; threadId: string }
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY
-const ASSISTANT_ID = process.env.ASSISTANT_ID
 
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY })
 
@@ -37,23 +35,4 @@ export default async function handler(
     console.error('❌ Erro ao processar requisição:', error)
     res.status(500).json({ message: 'Erro ao processar a solicitação' })
   }
-}
-
-async function waitForCompletion(
-  threadId: string,
-  runId: string
-): Promise<void> {
-  const checkStatus = async (): Promise<void> => {
-    try {
-      const runStatus = await openai.beta.threads.runs.retrieve(threadId, runId)
-      if (runStatus.status !== 'completed') {
-        await new Promise((resolve) => setTimeout(resolve, 8000))
-        return checkStatus()
-      }
-    } catch (error) {
-      console.error('❌ Erro ao verificar status:', error)
-    }
-  }
-
-  await checkStatus()
 }

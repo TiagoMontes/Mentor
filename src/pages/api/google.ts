@@ -10,19 +10,18 @@ const GOOGLE_CX = process.env.GOOGLE_CX
 export async function searchGoogle(query: string): Promise<SearchResult[]> {
   const url = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${GOOGLE_API_KEY}&cx=${GOOGLE_CX}`
 
-  console.log(url)
   try {
     const response = await fetch(url)
     const data = await response.json()
 
     if (data.items && data.items.length > 0) {
-      console.log(data)
-
-      return data.items.slice(0, 3).map((item: any) => ({
-        title: item.title,
-        link: item.link,
-        snippet: item.snippet,
-      }))
+      return data.items
+        .slice(0, 3)
+        .map((item: { title: string; link: string; snippet: string }) => ({
+          title: item.title,
+          link: item.link,
+          snippet: item.snippet,
+        }))
     }
 
     return [

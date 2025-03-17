@@ -14,8 +14,6 @@ const News: NextPageWithLayout = () => {
   const [news, setNews] = useState<NewsItem[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
-  console.log('Current news state:', news)
-
   async function fetchLatestNews() {
     setIsLoading(true)
     const res = await fetch('/api/OpenAI/news', {
